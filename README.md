@@ -1,32 +1,75 @@
-# React + TypeScript + Vite
+# Système Solaire Interactif
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Application React et TypeScript permettant d’explorer le système solaire. Les planètes peuvent être visualisées dans une vue 2D animée ou dans une vue 3D interactive.
 
-Currently, two official plugins are available:
+## Fonctionnalités
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Affichage animé des huit planètes autour du Soleil
+- Contrôle de la vitesse de la simulation
+- Pause et reprise de l’animation
+- Affichage ou masquage des orbites et des noms
+- Informations sur chaque planète et le Soleil
+- Vue 3D interactive avec zoom, rotation et défilement
+- Anneaux de Saturne et textures générées pour les planètes
+- Interface responsive pour ordinateur et mobile
 
-## React Compiler
+## Technologies
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19
+- TypeScript
+- Vite
+- Tailwind CSS
+- Three.js
+- Oxlint
 
-## Expanding the Oxlint configuration
+## Démarrage
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+Installez les dépendances :
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Démarrez le serveur de développement :
+
+```bash
+npm run dev
+```
+
+Ouvrez l’adresse affichée par Vite, généralement :
+
+```text
+http://localhost:5173
+```
+
+## Commandes disponibles
+
+```bash
+npm run dev       # Démarre le serveur de développement
+npm run build     # Compile TypeScript et génère le bundle de production
+npm run lint      # Exécute Oxlint
+npm run preview   # Affiche l’application de production en local
+```
+
+## Utilisation
+
+1. Cliquez sur une planète pour afficher ses informations.
+2. Cliquez sur **Visualiser en 3D** pour ouvrir la vue immersive.
+3. Utilisez la souris pour tourner la planète.
+4. Utilisez la molette pour zoomer.
+5. Utilisez le bouton **Fermer ×** pour quitter la vue 3D.
+
+## Structure du projet
+
+```text
+src/
+├── App.tsx
+├── components/
+│   └── Planet3D.tsx
+├── data/
+│   └── planets.ts
+├── index.css
+└── main.tsx
+```
+
+Les informations sur les planètes sont définies dans [src/data/planets.ts](src/data/planets.ts). La vue 3D est gérée par [src/components/Planet3D.tsx](src/components/Planet3D.tsx).
